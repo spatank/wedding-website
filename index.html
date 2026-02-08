@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Celebration</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts for elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Custom styling for wedding theme */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Fixed decorative background layer */
+        .decorative-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(135deg, #FDFDFB 0%, #F8F0E8 50%, #F5EDE6 100%);
+        }
+
+        .decorative-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.06;
+            background-image:
+                radial-gradient(circle at 20% 30%, #2C5F4F 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, #E8A857 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, #3D7359 0%, transparent 50%);
+        }
+
+        /* Main content layer */
+        .content-layer {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Tab styling */
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background-color: rgba(44, 95, 79, 0.1);
+        }
+
+        .tab-button.active {
+            background-color: #2C5F4F;
+            color: white;
+        }
+
+        /* Hide all tab content by default */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Event card styling */
+        .event-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Smooth scrolling within card */
+        .scrollable-card {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-transparent overflow-x-hidden">
+
+    <!-- Fixed Decorative Background Layer -->
+    <div class="decorative-background">
+        <div class="decorative-pattern"></div>
+    </div>
+
+    <!-- Content Layer -->
+    <div class="content-layer min-h-screen">
+
+        <!-- Sticky Navigation -->
+        <nav class="sticky top-0 z-50 bg-white shadow-md">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-wrap items-center justify-center py-4 gap-2">
+                    <button onclick="switchTab('home')" class="tab-button active px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="home">
+                        Home
+                    </button>
+                    <button onclick="switchTab('schedule')" class="tab-button px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="schedule">
+                        Schedule
+                    </button>
+                    <button onclick="switchTab('culture')" class="tab-button px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="culture">
+                        Maharashtrian Wedding
+                    </button>
+                    <button onclick="switchTab('visa')" class="tab-button px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="visa">
+                        Visa Info
+                    </button>
+                    <button onclick="switchTab('info')" class="tab-button px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="info">
+                        Useful Info
+                    </button>
+                    <button onclick="switchTab('qa')" class="tab-button px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="qa">
+                        Q&A
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Scrollable Content Card -->
+        <div class="container mx-auto px-4 py-8 md:py-12">
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden scrollable-card" style="max-height: calc(100vh - 140px); overflow-y: auto;">
+
+                <!-- HOME TAB -->
+                <div id="home-content" class="tab-content active p-6 md:p-12">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+
+                <!-- SCHEDULE TAB -->
+                <div id="schedule-content" class="tab-content p-6 md:p-12">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+
+                <!-- MAHARASHTRIAN WEDDING TAB -->
+                <div id="culture-content" class="tab-content p-6 md:p-12">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+
+                <!-- VISA INFO TAB -->
+                <div id="visa-content" class="tab-content p-6 md:p-12">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+
+                <!-- USEFUL INFO TAB -->
+                <div id="info-content" class="tab-content p-6 md:p-12">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+
+                <!-- Q&A TAB -->
+                <div id="qa-content" class="tab-content p-6 md:p-12">
+                    <!-- Content will be loaded dynamically -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Tab Switching and Dynamic Content Loading -->
+    <script>
+        // Content cache to avoid re-loading
+        const contentCache = {};
+
+        // Map tab names to content files
+        const contentFiles = {
+            'home': 'content/home.html',
+            'schedule': 'content/schedule.html',
+            'culture': 'content/culture.html',
+            'visa': 'content/visa.html',
+            'info': 'content/info.html',
+            'qa': 'content/qa.html'
+        };
+
+        // Load content from file
+        async function loadContent(tabName) {
+            // Check cache first
+            if (contentCache[tabName]) {
+                return contentCache[tabName];
+            }
+
+            try {
+                const response = await fetch(contentFiles[tabName]);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${tabName} content`);
+                }
+                const content = await response.text();
+                contentCache[tabName] = content;
+                return content;
+            } catch (error) {
+                console.error('Error loading content:', error);
+                return '<p class="text-red-600">Error loading content. Please refresh the page.</p>';
+            }
+        }
+
+        // Tab switching functionality
+        async function switchTab(tabName) {
+            // Hide all tab contents
+            const allContents = document.querySelectorAll('.tab-content');
+            allContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            const allButtons = document.querySelectorAll('.tab-button');
+            allButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Get selected tab content container
+            const selectedContent = document.getElementById(tabName + '-content');
+            if (selectedContent) {
+                // Load content if not already loaded
+                if (!selectedContent.hasAttribute('data-loaded')) {
+                    const content = await loadContent(tabName);
+                    selectedContent.innerHTML = content;
+                    selectedContent.setAttribute('data-loaded', 'true');
+                }
+
+                // Show selected tab
+                selectedContent.classList.add('active');
+            }
+
+            // Add active class to clicked button
+            const selectedButton = document.querySelector(`[data-tab="${tabName}"]`);
+            if (selectedButton) {
+                selectedButton.classList.add('active');
+            }
+
+            // Scroll to top of content card
+            const contentCard = document.querySelector('.scrollable-card');
+            if (contentCard) {
+                contentCard.scrollTop = 0;
+            }
+        }
+
+        // Load home content on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadContent('home').then(content => {
+                const homeContent = document.getElementById('home-content');
+                if (homeContent) {
+                    homeContent.innerHTML = content;
+                    homeContent.setAttribute('data-loaded', 'true');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

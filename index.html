@@ -113,16 +113,9 @@
                     <button onclick="switchTab('culture')" class="tab-button px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="culture">
                         Maharashtrian Wedding
                     </button>
-                    <!-- Temporarily hidden tabs -->
-                    <!-- <button onclick="switchTab('visa')" class="tab-button px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="visa">
-                        Visa Info
-                    </button>
                     <button onclick="switchTab('info')" class="tab-button px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="info">
-                        Useful Info
+                        Travel Info
                     </button>
-                    <button onclick="switchTab('qa')" class="tab-button px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-colors" data-tab="qa">
-                        Q&A
-                    </button> -->
                 </div>
             </div>
         </nav>
@@ -146,18 +139,8 @@
                     <!-- Content will be loaded dynamically -->
                 </div>
 
-                <!-- VISA INFO TAB -->
-                <div id="visa-content" class="tab-content p-6 md:p-12">
-                    <!-- Content will be loaded dynamically -->
-                </div>
-
-                <!-- USEFUL INFO TAB -->
+                <!-- TRAVEL INFO TAB -->
                 <div id="info-content" class="tab-content p-6 md:p-12">
-                    <!-- Content will be loaded dynamically -->
-                </div>
-
-                <!-- Q&A TAB -->
-                <div id="qa-content" class="tab-content p-6 md:p-12">
                     <!-- Content will be loaded dynamically -->
                 </div>
 
@@ -176,9 +159,7 @@
             'home': 'content/home.html',
             'schedule': 'content/schedule.html',
             'culture': 'content/culture.html',
-            'visa': 'content/visa.html',
-            'info': 'content/info.html',
-            'qa': 'content/qa.html'
+            'info': 'content/info.html'
         };
 
         // Load content from file
@@ -224,6 +205,12 @@
                     const content = await loadContent(tabName);
                     selectedContent.innerHTML = content;
                     selectedContent.setAttribute('data-loaded', 'true');
+
+                    // Initialize visa dropdown if this is the info tab
+                    if (tabName === 'info') {
+                        // Use setTimeout to ensure DOM is fully updated
+                        setTimeout(initializeVisaDropdown, 0);
+                    }
                 }
 
                 // Show selected tab
@@ -240,6 +227,30 @@
             const contentCard = document.querySelector('.scrollable-card');
             if (contentCard) {
                 contentCard.scrollTop = 0;
+            }
+        }
+
+        // Initialize dropdown functionality for visa section
+        function initializeVisaDropdown() {
+            const visaDropdown = document.getElementById('visaDropdown');
+            const visaContent = document.getElementById('visaContent');
+            const visaArrow = document.getElementById('visaArrow');
+
+            if (visaDropdown && visaContent && visaArrow) {
+                // Remove any existing listeners
+                const newDropdown = visaDropdown.cloneNode(true);
+                visaDropdown.parentNode.replaceChild(newDropdown, visaDropdown);
+
+                // Add click listener
+                newDropdown.addEventListener('click', function() {
+                    if (visaContent.classList.contains('hidden')) {
+                        visaContent.classList.remove('hidden');
+                        visaArrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        visaContent.classList.add('hidden');
+                        visaArrow.style.transform = 'rotate(0deg)';
+                    }
+                });
             }
         }
 

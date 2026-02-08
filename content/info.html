@@ -7,7 +7,7 @@
 
 <!-- Visa Information Dropdown -->
 <div class="mb-10">
-    <button id="visaDropdown" onclick="(function(){var c=document.getElementById('visaContent');var a=document.getElementById('visaArrow'); if(!c) return; if(c.classList.contains('hidden')){c.classList.remove('hidden'); if(a) a.style.transform='rotate(180deg)';} else {c.classList.add('hidden'); if(a) a.style.transform='rotate(0deg)';}})()" class="w-full bg-gradient-to-r from-teal-700 to-teal-600 text-white rounded-lg p-4 flex justify-between items-center hover:from-teal-800 hover:to-teal-700 transition-all shadow-md">
+    <button id="visaDropdown" class="w-full bg-gradient-to-r from-teal-700 to-teal-600 text-white rounded-lg p-4 flex justify-between items-center hover:from-teal-800 hover:to-teal-700 transition-all shadow-md">
         <span class="text-xl font-semibold flex items-center gap-2">
             <span>🛂</span> Visa Information for US Travelers
         </span>
@@ -171,31 +171,21 @@
     </h3>
 
     <div class="bg-amber-50 rounded-lg p-6 mb-4">
-        <h4 class="font-semibold text-gray-800 mb-3">From the Airport</h4>
+        <!-- <h4 class="font-semibold text-gray-800 mb-3">From the Airport</h4> -->
         <p class="text-gray-700 mb-3">
-            <strong>Airport:</strong> [Nearest International Airport - e.g., Chhatrapati Shivaji International Airport, Mumbai]
+            <strong>Nearest Airports:</strong> Navi Mumbai International Airport, Chhatrapati Shivaji Maharaj International Airport
         </p>
         <p class="text-gray-700 mb-3">
-            Consectetur adipiscing elit sed do eiusmod. We will arrange group transportation from the airport to hotels for guests arriving on [specific dates]. Please fill out [travel form placeholder] with your flight details.
+            We will arrange transportation from the airport to the hotel(s) for guests.
         </p>
         <div class="bg-white rounded p-4">
             <p class="text-sm text-gray-700 mb-2"><strong>Independent Travel Options:</strong></p>
             <ul class="list-disc list-inside text-gray-700 space-y-1 ml-4 text-sm">
-                <li><strong>Pre-paid Taxi:</strong> Available at airport, safest option (~₹[price] or $[price])</li>
+                <li><strong>Pre-paid Taxi:</strong> Available at airport</li>
                 <li><strong>App-based Rides:</strong> Uber and Ola available (download apps before arrival)</li>
                 <li><strong>Hotel Pickup:</strong> Many hotels offer airport transfers (book in advance)</li>
             </ul>
         </div>
-    </div>
-
-    <div class="bg-white rounded-lg p-6 border border-gray-200">
-        <h4 class="font-semibold text-gray-800 mb-3">Local Transportation</h4>
-        <p class="text-gray-700 mb-3">
-            Tempor incididunt ut labore et dolore. We will provide shuttle services between hotels and wedding venues for all events.
-        </p>
-        <p class="text-gray-700">
-            For exploring the city: Use Uber/Ola for convenience, or hire a driver for the day (~₹2000-3000 or $25-40 USD for 8 hours).
-        </p>
     </div>
 </div>
 
@@ -205,36 +195,17 @@
         <span>🏨</span> Accommodation
     </h3>
     <p class="text-gray-700 mb-4">
-        Magna aliqua ut enim ad minim. We've arranged room blocks at the following hotels near the wedding venues:
+        We will arrange accomodation for guests from March 10 - March 13 in Navi Mumbai. Please let us know if you'd like us to also make arrangements beyond these dates.
     </p>
 
-    <!-- Hotel 1 -->
+    <!-- Hotel-->
     <div class="bg-gradient-to-r from-slate-50 to-white rounded-lg p-6 mb-4 border-l-4 border-slate-400">
-        <h4 class="font-semibold text-gray-800 mb-2">[Hotel Name 1 - Luxury Option]</h4>
-        <p class="text-gray-600 text-sm mb-2">[Address]</p>
+        <h4 class="font-semibold text-gray-800 mb-2">[TBD]</h4>
+        <p class="text-gray-600 text-sm mb-2">[TBD]</p>
         <p class="text-gray-700 mb-2">
-            Lorem ipsum dolor sit amet. [Brief description of hotel amenities - pool, spa, restaurant, etc.]
-        </p>
-        <p class="text-sm text-gray-600">
-            <strong>Rate:</strong> ₹[price] (~$[USD]) per night | <strong>Booking Code:</strong> [WEDDING2026]
+            TBD
         </p>
     </div>
-
-    <!-- Hotel 2 -->
-    <div class="bg-gradient-to-r from-amber-50 to-white rounded-lg p-6 mb-4 border-l-4 border-teal-600">
-        <h4 class="font-semibold text-gray-800 mb-2">[Hotel Name 2 - Mid-Range Option]</h4>
-        <p class="text-gray-600 text-sm mb-2">[Address]</p>
-        <p class="text-gray-700 mb-2">
-            Consectetur adipiscing elit. [Brief description - comfortable rooms, breakfast included, etc.]
-        </p>
-        <p class="text-sm text-gray-600">
-            <strong>Rate:</strong> ₹[price] (~$[USD]) per night | <strong>Booking Code:</strong> [WEDDING2026]
-        </p>
-    </div>
-
-    <p class="text-sm text-gray-600 mt-4">
-        💡 Book early to secure the group rate! Contact: [hotel booking contact placeholder]
-    </p>
 </div>
 
 <!-- Money & Currency -->
@@ -244,7 +215,7 @@
     </h3>
     <div class="bg-amber-50 rounded-lg p-6">
         <p class="text-gray-700 mb-3">
-            <strong>Currency:</strong> Indian Rupee (₹ or INR) | <strong>Approximate Rate:</strong> $1 USD ≈ ₹[current rate]
+            <strong>Currency:</strong> Indian Rupee (₹ or INR) | <strong>Approximate Rate:</strong> $1 USD ≈ ₹90 INR
         </p>
         <h4 class="font-semibold text-gray-800 mb-2">Tips for Handling Money:</h4>
         <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
@@ -257,7 +228,7 @@
     </div>
 </div>
 
-<!-- Communication -->
+<!-- Communication
 <div class="mb-10">
     <h3 class="heading-font text-2xl font-semibold text-teal-800 mb-4 flex items-center gap-2">
         <span>📱</span> Staying Connected
@@ -265,7 +236,7 @@
     <div class="bg-blue-50 rounded-lg p-6">
         <h4 class="font-semibold text-gray-800 mb-3">Mobile Phone & Internet</h4>
         <p class="text-gray-700 mb-3">
-            Sed do eiusmod tempor incididunt. We recommend getting a local SIM card for data and calls:
+            We recommend getting a local SIM card for data and calls:
         </p>
         <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
             <li><strong>Providers:</strong> Airtel, Jio, Vodafone-Idea (available at airport and shops)</li>
@@ -276,7 +247,7 @@
         <p class="text-sm text-gray-600">
             Alternative: International roaming plans from US carriers, but typically more expensive.
         </p>
-    </div>
+    </div> -->
 </div>
 
 <!-- Weather & Packing -->
@@ -286,7 +257,7 @@
     </h3>
     <div class="bg-amber-50 rounded-lg p-6">
         <p class="text-gray-700 mb-3">
-            <strong>Expected Weather in [Month]:</strong> [Temperature range, e.g., 75-90°F / 24-32°C], [Season description - dry/humid/monsoon]
+            <strong>Expected Weather in March:</strong> 70-90°F / 21-33°C, Dry and warm season
         </p>
         <h4 class="font-semibold text-gray-800 mb-3">Packing Checklist:</h4>
         <div class="grid md:grid-cols-2 gap-4">
@@ -307,30 +278,20 @@
                     <li>Light, breathable fabrics</li>
                     <li>Comfortable walking shoes</li>
                     <li>Modest clothing for temple visits</li>
-                    <li>Indian wedding outfits (see Q&A section)</li>
+                    <li>Indian wedding outfits</li>
                     <li>Light jacket for air-conditioned spaces</li>
-                    <li>Comfortable sandals</li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
 <!-- Emergency Contacts -->
+<!-- Wedding Contacts -->
 <div class="mb-8">
     <h3 class="heading-font text-2xl font-semibold text-teal-800 mb-4 flex items-center gap-2">
-        <span>🆘</span> Important Contacts
+        <span>🤍</span> Wedding Team
     </h3>
     <div class="bg-teal-50 rounded-lg p-6 border-l-4 border-teal-700">
-        <div class="grid md:grid-cols-2 gap-4 mb-4">
-            <div>
-                <p class="font-semibold text-gray-800 mb-1">Emergency Services (India)</p>
-                <p class="text-gray-700">Police: 100 | Ambulance: 102</p>
-            </div>
-            <div>
-                <p class="font-semibold text-gray-800 mb-1">US Embassy (New Delhi)</p>
-                <p class="text-gray-700">+91-11-2419-8000</p>
-            </div>
-        </div>
         <div class="bg-white rounded p-4">
             <p class="font-semibold text-gray-800 mb-2">Wedding Coordination Team</p>
             <ul class="text-gray-700 space-y-1">
@@ -340,3 +301,4 @@
         </div>
     </div>
 </div>
+

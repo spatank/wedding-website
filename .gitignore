@@ -131,3 +131,6 @@ dist
 
 # macOS
 .DS_Store
+
+# Project docs
+CLAUDE.md
